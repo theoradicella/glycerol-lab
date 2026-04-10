@@ -1,0 +1,20 @@
+We measured the length in mililiters.
+The quantity is marked by the black tape in the tube.
+we measured 
+- 100ml = 9.25cm
+- 220ml = 20.35cm
+
+- The density of the material of the balls is ~ 7.7 g/cm^3 with .1 error
+- Room temperature is 25 Celsius
+
+--------
+
+TASKS WE CAN DO:
+
+1. Check the Stocks Law from the videos.
+2. Check limit velocity.
+3. ML algorithm to guess velocity.
+4. ML algorithm to reconstruct trajectory
+
+
+Viscocity depends on temperature which is 26.5
