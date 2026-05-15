@@ -6,13 +6,13 @@ import numpy as np
 import scipy.ndimage as ndi
 from pathlib import Path
 
-def get_fall_time(ball_size):
+def get_fall_time(trial, ball_size):
     '''
     INPUT: size of the ball in mm
     OUTPUT: no. frames for the fall between markers
     '''
     script_dir = Path(__file__).parent
-    relative_path =  fr"..\videos\100ml\trial1\{ball_size}mm.mp4v"
+    relative_path =  fr"..\videos\100ml\trial{trial}\{ball_size}mm.mp4v"
     path = str((script_dir / relative_path).resolve())
     cap = cv2.VideoCapture(path)
 
@@ -44,7 +44,7 @@ def get_fall_time(ball_size):
 
     new_range = sorted([min(y_coords1), min(y_coords2), max(y_coords1), max(y_coords2)])[1:3]
 
-    cropped_frames = [frame[new_range[0]+1:new_range[1]-1, 160:240] for frame in new_frames] # x axis range chosen by looking 
+    cropped_frames = [frame[new_range[0]+1:new_range[1]-1, 160:300] for frame in new_frames] # x axis range chosen by looking 
 
     # find the times the ball enters and exits the frame
     pixels = []
@@ -61,6 +61,3 @@ def get_fall_time(ball_size):
     end = ends[max_idx] # - 1 we add 1 to finish on an empty frame
 
     return end - start
-
-trial15mm = get_fall_time(5)
-print(trial15mm)
